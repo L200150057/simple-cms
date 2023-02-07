@@ -19,6 +19,7 @@
     {{-- Admin LTE --}}
     <link rel="stylesheet" href="{{ asset('vendor/admin-lte/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+    @stack('styles')
 </head>
 <body>
     @if (auth()->user())
@@ -27,7 +28,6 @@
     @endif
     <div id="app">
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
                     @yield('content')
@@ -37,5 +37,6 @@
     </div>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>
