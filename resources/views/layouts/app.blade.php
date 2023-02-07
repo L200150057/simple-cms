@@ -26,9 +26,14 @@
         @include('layouts.sidebar')
     @endif
     <div id="app">
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
+            </section>
+        </div>
     </div>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
