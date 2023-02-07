@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,8 @@ Auth::routes([
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('my-profile')->middleware(['auth', 'signed'])->group(function() {
+    Route::get('/', [MyProfileController::class, 'index'])->name('my.profile.index');
+    Route::patch('/', [MyProfileController::class, 'update'])->name('my.profile.update');
+});
