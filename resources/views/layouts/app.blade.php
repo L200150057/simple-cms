@@ -21,12 +21,10 @@
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
     @stack('styles')
 </head>
-<body>
-    @if (auth()->user())
+<body class="sidebar-mini layout-fixed">
+    <div class="wrapper">
         @include('layouts.navbar')
         @include('layouts.sidebar')
-    @endif
-    <div id="app">
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
