@@ -5,47 +5,37 @@
 @endpush
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Tanggal Lahir</th>
-                                <th width="10%">Aksi</th>
-                            </tr>
-                        </thead>
-                    </table>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Photo</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th width="10%">Actions</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    @include('includes.delete-modal')
 @endsection
 
 @push('scripts')
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/user/datatable.js') }}"></script>
+    <script src="{{ asset('assets/js/user/delete.js') }}"></script>
     <script>
-        $(document).ready(function () {
-            $('table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('user.list') }}",
-                order: [],
-                columns: [
-                    { data: 'DT_RowIndex', sortable: false, searchable: false },
-                    { data: 'name' },
-                    { data: 'gender' },
-                    { data: 'date_of_birth' },
-                    { data: 'action', sortable: false },
-                ],
-            });
-        });
+        let userList = "{{ route('user.list') }}"
     </script>
 @endpush

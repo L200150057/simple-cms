@@ -31,6 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::prefix('user')->group(function() {
         Route::get('/list', [UserController::class, 'list'])->name('user.list');
         Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/{user}', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/{user}', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
     });
 
     Route::prefix('my-profile')->group(function() {
