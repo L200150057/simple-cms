@@ -27,7 +27,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link">
+                    <a href="{{ route('home') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
                             Home
@@ -59,6 +59,29 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('tag.create') }}" class="nav-link {{ request()->is('tag/create') ? 'active' : '' }}">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item {{ request()->is('category*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('category*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tags"></i>
+                        <p>
+                            Category
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('category.index') }}" class="nav-link {{ request()->is(['category', 'category/*']) && !request()->is('category/create') ? 'active' : '' }}">
+                                <i class="fa fa-list nav-icon"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('category.create') }}" class="nav-link {{ request()->is('category/create') ? 'active' : '' }}">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Create</p>
                             </a>

@@ -2,20 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MyProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,6 +35,16 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/{tag}', [TagController::class, 'edit'])->name('tag.edit');
         Route::put('/{tag}', [TagController::class, 'update'])->name('tag.update');
         Route::delete('/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
+    });
+
+    Route::prefix('category')->group(function() {
+        Route::get('/list', [CategoryController::class, 'list'])->name('category.list');
+        Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('/', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::put('/{category}', [CategoryController::class, 'update'])->name('category.update');
+        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
     });
 
     Route::prefix('my-profile')->group(function() {
