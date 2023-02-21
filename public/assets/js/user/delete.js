@@ -19,15 +19,17 @@ function destroy(event) {
             type: event.target.method,
             data: $(event.target).serialize(),
         })
-            .done(function () {
+            .done(function (res) {
                 userDatatable.ajax.reload();
                 $("#delete-modal").modal("hide");
                 confirmDelete.prop("disabled", false);
                 confirmDelete.text(confirmDeleteText);
+                toastr.success(res.message)
             })
-            .fail(function () {
+            .fail(function (err) {
                 confirmDelete.prop("disabled", false);
                 confirmDelete.text(confirmDeleteText);
+                toastr.error(err.responseJSON.message);
             });
     });
 }

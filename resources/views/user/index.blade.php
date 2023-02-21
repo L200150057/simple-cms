@@ -2,6 +2,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('vendor/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
 @endpush
 
 @section('content')
@@ -35,7 +36,14 @@
     <script src="{{ asset('vendor/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/js/user/datatable.js') }}"></script>
     <script src="{{ asset('assets/js/user/delete.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
     <script>
+        const successMessage = "{{ session()->get('success') }}";
+
+        if (successMessage) {
+            toastr.success(successMessage)
+        }
+
         let userList = "{{ route('user.list') }}"
     </script>
 @endpush
