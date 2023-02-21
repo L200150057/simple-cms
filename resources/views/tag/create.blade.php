@@ -77,7 +77,7 @@
                                         type="submit"
                                         class="btn btn-dark"
                                     >
-                                        {{ __('Update') }}
+                                        {{ __('Create') }}
                                     </button>
                                 </div>
                             </div>

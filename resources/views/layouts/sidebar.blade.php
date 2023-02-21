@@ -88,6 +88,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{ request()->is('post*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('post*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-folder-open"></i>
+                        <p>
+                            Post
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('post.index') }}" class="nav-link {{ request()->is(['post', 'post/*']) && !request()->is('post/create') ? 'active' : '' }}">
+                                <i class="fa fa-list nav-icon"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('post.create') }}" class="nav-link {{ request()->is('post/create') ? 'active' : '' }}">
+                                <i class="fa fa-plus nav-icon"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MyProfileController;
@@ -45,6 +46,16 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/{category}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::put('/{category}', [CategoryController::class, 'update'])->name('category.update');
         Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    });
+
+    Route::prefix('post')->group(function() {
+        Route::get('/list', [PostController::class, 'list'])->name('post.list');
+        Route::get('/', [PostController::class, 'index'])->name('post.index');
+        Route::get('/create', [PostController::class, 'create'])->name('post.create');
+        Route::post('/', [PostController::class, 'store'])->name('post.store');
+        Route::get('/{post}', [PostController::class, 'edit'])->name('post.edit');
+        Route::put('/{post}', [PostController::class, 'update'])->name('post.update');
+        Route::delete('/{post}', [PostController::class, 'destroy'])->name('post.destroy');
     });
 
     Route::prefix('my-profile')->group(function() {
