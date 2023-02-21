@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{ __('Edit Tag') }}</h4>
+                        <h4>{{ __('Create Tag') }}</h4>
                     </div>
                     <div class="card-body">
                         <form
