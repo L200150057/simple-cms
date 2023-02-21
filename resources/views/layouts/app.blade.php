@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss'])
 
     {{-- Admin LTE --}}
     <link rel="stylesheet" href="{{ asset('vendor/admin-lte/adminlte.min.css') }}">
@@ -34,6 +34,7 @@
         </div>
     </div>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
     @stack('scripts')
 </body>

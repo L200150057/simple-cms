@@ -23,7 +23,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="name"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
@@ -49,7 +49,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="description"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Description') }}</label>
 
                                 <div class="col-md-6">

@@ -3,10 +3,6 @@ function destroy(event) {
 
     $("#delete-modal").modal("show");
 
-    $("#dismiss-delete-modal").on("click", function() {
-        $("#delete-modal").modal("hide");
-    })
-
     $("#confirm-delete").off().on("click", function () {
         const confirmDelete = $(this);
         const confirmDeleteText = confirmDelete.text();

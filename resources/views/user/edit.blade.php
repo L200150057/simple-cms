@@ -24,7 +24,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="name"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
@@ -50,7 +50,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="date_of_birth"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Tanggal Lahir') }}</label>
 
                                 <div class="col-md-6">
@@ -76,7 +76,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="gender"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Jenis Kelamin') }}</label>
 
                                 <div class="col-md-6">
@@ -109,7 +109,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="address"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Alamat') }}</label>
 
                                 <div class="col-md-6">
@@ -134,7 +134,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="gender"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Status') }}</label>
 
                                 <div class="col-md-6">
@@ -167,7 +167,7 @@
                             <div class="row mb-3">
                                 <label
                                     for="images"
-                                    class="col-md-4 col-form-label text-md-end"
+                                    class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Foto') }}</label>
                                 <div class="col-md-6">
                                     <div class="input-group mb-3">
