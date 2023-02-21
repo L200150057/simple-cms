@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -34,6 +35,16 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/{user}', [UserController::class, 'edit'])->name('user.edit');
         Route::put('/{user}', [UserController::class, 'update'])->name('user.update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    Route::prefix('tag')->group(function() {
+        Route::get('/list', [TagController::class, 'list'])->name('tag.list');
+        Route::get('/', [TagController::class, 'index'])->name('tag.index');
+        Route::get('/create', [TagController::class, 'create'])->name('tag.create');
+        Route::post('/', [TagController::class, 'store'])->name('tag.store');
+        Route::get('/{tag}', [TagController::class, 'edit'])->name('tag.edit');
+        Route::put('/{tag}', [TagController::class, 'update'])->name('tag.update');
+        Route::delete('/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
     });
 
     Route::prefix('my-profile')->group(function() {

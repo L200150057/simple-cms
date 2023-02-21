@@ -7,7 +7,6 @@ $(document).ready(function () {
     }
 
     userDatatable = $('table').DataTable({
-        dom: '<"table-responsive"t>',
         processing: true,
         serverSide: true,
         ajax: userList,

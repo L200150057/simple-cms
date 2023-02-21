@@ -56,7 +56,7 @@ class UserController extends Controller
                 return '<span class="badge badge-danger p-2">Blocked</span>';
             })
             ->escapeColumns(['action'])
-            ->toJson();
+            ->make(true);
     }
 
     public function index()
