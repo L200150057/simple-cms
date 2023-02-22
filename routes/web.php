@@ -6,20 +6,19 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontPageController;
 use App\Http\Controllers\MyProfileController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontPageController::class, 'index'])->name('front.page.index');
+Route::get('/post/{post:slug}', [FrontPageController::class, 'show'])->name('front.page.show');
 
 Auth::routes([
     'verify' => true
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-Route::middleware(['auth', 'verified'])->group(function() {
     Route::prefix('user')->group(function() {
         Route::get('/list', [UserController::class, 'list'])->name('user.list');
         Route::get('/', [UserController::class, 'index'])->name('user.index');

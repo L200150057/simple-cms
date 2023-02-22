@@ -27,7 +27,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="nav-link {{ request()->is('admin/home') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
                             Home
@@ -35,15 +35,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.index') }}" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
+                    <a href="{{ route('user.index') }}" class="nav-link {{ request()->is('admin/user*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             User
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->is('tag*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('tag*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('admin/tag*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('admin/tag*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tag"></i>
                         <p>
                             Tag
@@ -52,21 +52,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('tag.index') }}" class="nav-link {{ request()->is(['tag', 'tag/*']) && !request()->is('tag/create') ? 'active' : '' }}">
+                            <a href="{{ route('tag.index') }}" class="nav-link {{ request()->is(['admin/tag', 'admin/tag/*']) && !request()->is('admin/tag/create') ? 'active' : '' }}">
                                 <i class="fa fa-list nav-icon"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('tag.create') }}" class="nav-link {{ request()->is('tag/create') ? 'active' : '' }}">
+                            <a href="{{ route('tag.create') }}" class="nav-link {{ request()->is('admin/tag/create') ? 'active' : '' }}">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ request()->is('category*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('category*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('admin/category*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('admin/category*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tags"></i>
                         <p>
                             Category
@@ -75,21 +75,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('category.index') }}" class="nav-link {{ request()->is(['category', 'category/*']) && !request()->is('category/create') ? 'active' : '' }}">
+                            <a href="{{ route('category.index') }}" class="nav-link {{ request()->is(['admin/category', 'admin/category/*']) && !request()->is('admin/category/create') ? 'active' : '' }}">
                                 <i class="fa fa-list nav-icon"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('category.create') }}" class="nav-link {{ request()->is('category/create') ? 'active' : '' }}">
+                            <a href="{{ route('category.create') }}" class="nav-link {{ request()->is('admin/category/create') ? 'active' : '' }}">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Create</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ request()->is('post*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('post*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('admin/post*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('admin/post*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-folder-open"></i>
                         <p>
                             Post
@@ -98,13 +98,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('post.index') }}" class="nav-link {{ request()->is(['post', 'post/*']) && !request()->is('post/create') ? 'active' : '' }}">
+                            <a href="{{ route('post.index') }}" class="nav-link {{ request()->is(['admin/post', 'admin/post/*']) && !request()->is('admin/post/create') ? 'active' : '' }}">
                                 <i class="fa fa-list nav-icon"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('post.create') }}" class="nav-link {{ request()->is('post/create') ? 'active' : '' }}">
+                            <a href="{{ route('post.create') }}" class="nav-link {{ request()->is('admin/post/create') ? 'active' : '' }}">
                                 <i class="fa fa-plus nav-icon"></i>
                                 <p>Create</p>
                             </a>

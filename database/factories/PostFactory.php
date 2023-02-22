@@ -20,10 +20,10 @@ class PostFactory extends Factory
         $title = $this->faker->name();
 
         return [
-            'image' => $this->faker->name(),
+            'image' => NULL,
             'title' => $title,
             'slug'  => Str::slug($title),
-            'content' => $this->faker->paragraph(),
+            'content' => $this->faker->paragraph(100),
             'created_by' => $this->faker->name(),
         ];
     }
