@@ -81,7 +81,7 @@ class UserController extends Controller
             'status' => 'required|in:active,blocked',
         ]);
 
-        $image = $request->file('images');
+        $image = $request->file('photo');
 
         if ($image) {
             $hashName = $image->hashName();

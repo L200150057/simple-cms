@@ -43,8 +43,18 @@
                         <div class="card-body">
                             {{-- Image --}}
                             <div class="form-group mb-3">
-                                <label class="m-0" for="image">{{ __('Image') }}</label>
-                                <input id="image" type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}">
+                                <label for="image">{{ __('Image') }}</label>
+                                <div class="custom-file @error('image') is-invalid @enderror">
+                                    <input
+                                        type="file"
+                                        id="image"
+                                        accept="image/*"
+                                        class="custom-file-input @error('image') is-invalid @enderror"
+                                        name="image"
+                                        value="{{ old('image') }}"
+                                    >
+                                    <label class="custom-file-label" for="image">Choose file</label>
+                                </div>
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -163,33 +163,34 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- images --}}
+                            {{-- photo --}}
                             <div class="row mb-3">
                                 <label
-                                    for="images"
+                                    for="photo"
                                     class="col-md-4 col-form-label text-md-right"
                                 >{{ __('Foto') }}</label>
                                 <div class="col-md-6">
-                                    <div class="input-group mb-3">
-                                        <div>
-                                            @if ($user->photo)
-                                                <img src="{{ Storage::url($user->photo) }}" class="img-fluid mb-3 rounded">
-                                            @endif
+                                    <div class="input-group">
+                                        @if ($user->photo)
+                                            <img src="{{ Storage::url($user->photo) }}" class="img-fluid mb-3 rounded">
+                                        @endif
+                                        <div class="custom-file">
                                             <input
-                                                name="images"
-                                                class="form-control @error('images') is-invalid @enderror"
-                                                value="{{ old('images', $user->images) }}"
                                                 type="file"
+                                                id="photo"
                                                 accept="image/*"
-                                                id="formFile"
+                                                class="custom-file-input @error('photo') is-invalid @enderror"
+                                                name="photo"
+                                                value="{{ old('photo', $user->photo) }}"
                                             >
-                                            <small
-                                                for="formFile"
-                                                class="form-label"
-                                            >Silahkan Upload Foto Anda</small>
+                                            <label class="custom-file-label" for="photo">Choose file</label>
                                         </div>
                                     </div>
-                                    @error('images')
+                                    <small
+                                        for="formFile"
+                                        class="form-label"
+                                    >Silahkan Upload Foto Anda</small>
+                                    @error('photo')
                                         <span
                                             class="invalid-feedback"
                                             role="alert"

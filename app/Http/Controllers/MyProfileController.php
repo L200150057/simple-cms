@@ -20,7 +20,7 @@ class MyProfileController extends Controller
             'address' => 'required|string',
         ]);
 
-        $image = $request->file('images');
+        $image = $request->file('photo');
 
         if ($image) {
             $hashName = $image->hashName();
