@@ -43,7 +43,7 @@
                         <div class="card-body">
                             {{-- Image --}}
                             <div class="form-group mb-3">
-                                <label for="image">{{ __('Image') }}</label>
+                                <label class="m-0" for="image">{{ __('Image') }}</label>
                                 <input id="image" type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}">
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label for="">Tags</label>
                                 <div style="height: 100px; overflow: auto;">
-                                    @foreach ($tags as $tag)
+                                    @forelse ($tags as $tag)
                                         <div class="form-check ml-2">
                                             <input
                                                 class="form-check-input"
@@ -70,13 +70,15 @@
                                             >
                                             <label class="form-check-label" for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <small class="text-secondary">No tags have been created yet. Please create them first in the <a href="{{ route('tag.create') }}">tag menu</a>.</small>
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Categories</label>
                                 <div style="height: 100px; overflow: auto;">
-                                    @foreach ($categories as $category)
+                                    @forelse ($categories as $category)
                                         <div class="form-check ml-2">
                                             <input
                                                 class="form-check-input"
@@ -92,7 +94,9 @@
                                             >
                                             <label class="form-check-label" for="category_{{ $category->id }}">{{ $category->name }}</label>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <small class="text-secondary">No categories have been created yet. Please create them first in the <a href="{{ route('category.create') }}">category menu</a>.</small>
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="form-group mt-4">

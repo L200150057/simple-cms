@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote-bs4.min.css') }}">
 @endpush
 
 @section('content')
@@ -44,7 +44,7 @@
                         <div class="card-body">
                             {{-- Image --}}
                             <div class="form-group mb-3">
-                                <label for="image">{{ __('Image') }}</label>
+                                <label class="m-0" for="image">{{ __('Image') }}</label>
                                 @if ($post->image)
                                     <img src="{{ Storage::disk('public')->url($post->image) }}" class="img-fluid rounded d-block my-3" alt="post-image">
                                 @endif
@@ -58,7 +58,7 @@
                             <div class="form-group">
                                 <label for="">Tags</label>
                                 <div style="height: 100px; overflow: auto;">
-                                    @foreach ($tags as $tag)
+                                    @forelse ($tags as $tag)
                                         <div class="form-check ml-2">
                                             <input
                                                 class="form-check-input"
@@ -74,13 +74,15 @@
                                             >
                                             <label class="form-check-label" for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <small class="text-secondary">No tags have been created yet. Please create them first in the <a href="{{ route('tag.create') }}">tag menu</a>.</small>
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Categories</label>
                                 <div style="height: 100px; overflow: auto;">
-                                    @foreach ($categories as $category)
+                                    @forelse ($categories as $category)
                                         <div class="form-check ml-2">
                                             <input
                                                 class="form-check-input"
@@ -96,7 +98,9 @@
                                             >
                                             <label class="form-check-label" for="category_{{ $category->id }}">{{ $category->name }}</label>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <small class="text-secondary">No categories have been created yet. Please create them first in the <a href="{{ route('category.create') }}">category menu</a>.</small>
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="form-group mt-4">
@@ -111,7 +115,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('vendor/summernote/summernote.min.js') }}"></script>
+    <script src="{{ asset('vendor/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         $(function() {
             $("#content").summernote({

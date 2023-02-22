@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -58,8 +59,13 @@ class PostController extends Controller
             'categories' => 'nullable'
         ]);
 
+        $slug = Str::slug($request->title, '-');
+        $postCount = Post::where('slug', $slug)->count();
+        $slug = $postCount ? "$slug-$postCount" : $slug;
+
         $postData = Arr::except($validatedData, ['tags', 'categories', 'image']);
         $postData = array_merge($postData, [
+            'slug' => $slug,
             'created_by' => $request->user()->name,
             'image' => $request->file('image')->storeAs('/', $request->file('image')->hashName(), [
                 'disk' => 'public'
@@ -93,10 +99,15 @@ class PostController extends Controller
             'categories' => 'nullable'
         ]);
 
+        $slug = Str::slug($request->title, '-');
+        $postCount = Post::where('slug', $slug)->where('id', '!=', $post->id)->count();
+        $slug = $postCount ? "$slug-$postCount" : $slug;
+
         $postData = Arr::except($validatedData, ['tags', 'categories', 'image']);
 
         if ($request->hasFile('image')) {
             $postData = array_merge($postData, [
+                'slug' => $slug,
                 'image' => $request->file('image')->storeAs('/', $request->file('image')->hashName(), [
                     'disk' => 'public'
                 ])
