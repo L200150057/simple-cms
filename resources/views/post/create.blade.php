@@ -109,6 +109,21 @@
                                     @endforelse
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="">Pin</label>
+                                <div class="form-check ml-2">
+                                    <input class="form-check-input" type="radio" name="is_pinned" id="is_pinned" value="1" checked>
+                                    <label class="form-check-label" for="is_pinned">
+                                        Yes, pin this post.
+                                    </label>
+                                </div>
+                                <div class="form-check ml-2">
+                                    <input class="form-check-input" type="radio" name="is_pinned" id="is_pinned" value="0">
+                                    <label class="form-check-label" for="is_pinned">
+                                        No, don't pin this post.
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-block btn-primary">Create</button>
                             </div>

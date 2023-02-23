@@ -10,9 +10,11 @@ class FrontPageController extends Controller
     public function index()
     {
         $posts = Post::with(['tags', 'categories'])->latest()->simplePaginate(6);
+        $pinnedPosts = Post::with(['tags', 'categories'])->where('is_pinned', true)->get();
 
         return view('welcome', [
-            'posts' => $posts
+            'posts' => $posts,
+            'pinnedPosts' => $pinnedPosts
         ]);
     }
 

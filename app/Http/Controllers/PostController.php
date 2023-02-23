@@ -56,7 +56,8 @@ class PostController extends Controller
             'content' => 'required|string',
             'image' => 'required|mimes:jpg,jpeg,svg,png',
             'tags' => 'nullable',
-            'categories' => 'nullable'
+            'categories' => 'nullable',
+            'is_pinned' => 'required|boolean',
         ]);
 
         $slug = Str::slug($request->title, '-');
@@ -96,7 +97,8 @@ class PostController extends Controller
             'content' => 'required|string',
             'image' => 'nullable',
             'tags' => 'nullable',
-            'categories' => 'nullable'
+            'categories' => 'nullable',
+            'is_pinned' => 'required|boolean',
         ]);
 
         $slug = Str::slug($request->title, '-');

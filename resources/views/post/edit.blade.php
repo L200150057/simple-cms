@@ -113,6 +113,21 @@
                                     @endforelse
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="">Pin</label>
+                                <div class="form-check ml-2">
+                                    <input class="form-check-input" type="radio" name="is_pinned" id="true_is_pinned" value="1" {{ $post->is_pinned ? "checked" : "" }}>
+                                    <label class="form-check-label" for="true_is_pinned">
+                                        Yes, pin this post.
+                                    </label>
+                                </div>
+                                <div class="form-check ml-2">
+                                    <input class="form-check-input" type="radio" name="is_pinned" id="false_is_pinned" value="0" {{ !$post->is_pinned ? "checked" : "" }}>
+                                    <label class="form-check-label" for="false_is_pinned">
+                                        No, don't pin this post.
+                                    </label>
+                                </div>
+                            </div>
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-block btn-primary">Update</button>
                             </div>

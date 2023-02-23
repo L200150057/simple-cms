@@ -11,7 +11,14 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'content', 'image', 'created_by'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'image',
+        'is_pinned',
+        'created_by'
+    ];
 
     public function tags()
     {
