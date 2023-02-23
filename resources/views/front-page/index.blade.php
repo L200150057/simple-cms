@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('front-page.layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="{{ asset('vendor/admin-lte/adminlte.min.css') }}">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-        </div>
-    </nav>
+@section('content')
     <div class="container">
         <div class="row my-4">
             <div class="col">
-                <div id="pinned-post-carousel" class="carousel slide" data-ride="carousel">
+                <div id="pinned-post-carousel" class="carousel slide overflow-hidden rounded" data-ride="carousel">
                     <ol class="carousel-indicators">
                         @foreach ($pinnedPosts->where('is_pinned', true) as $post)
                             <li data-target="#pinned-post-carousel" data-slide-to="0" class="{{ $loop->first ? 'active' : '' }}"></li>
@@ -33,7 +18,7 @@
                                 @else
                                     <img src="https://picsum.photos/1200/900" class="d-block" alt="pinned-post-image" style="object-fit: cover;">
                                 @endif
-                                <div class="carousel-caption d-none d-md-block" style="cursor: pointer;">
+                                <div onclick="window.location='{{ route('front.page.show', $post->slug) }}'" class="carousel-caption" style="cursor: pointer;">
                                     <h5>{{ $post->title }}</h5>
                                     <p>{!! $post->content_summary !!}</p>
                                 </div>
@@ -80,9 +65,4 @@
             {{ $posts->links() }}
         </div>
     </div>
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
-</body>
-
-</html>
+@endsection

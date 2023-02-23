@@ -12,7 +12,7 @@ class FrontPageController extends Controller
         $posts = Post::with(['tags', 'categories'])->latest()->simplePaginate(6);
         $pinnedPosts = Post::with(['tags', 'categories'])->where('is_pinned', true)->get();
 
-        return view('welcome', [
+        return view('front-page.index', [
             'posts' => $posts,
             'pinnedPosts' => $pinnedPosts
         ]);
@@ -20,6 +20,8 @@ class FrontPageController extends Controller
 
     public function show(Post $post)
     {
-        return $post;
+        return view('front-page.show', [
+            'post' => $post->load('tags', 'categories')
+        ]);
     }
 }
